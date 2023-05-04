@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .center{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="center">
+    <button onclick="start()">start now</button>
+    </div>
+    <div class="center" id="output">
+    </div>
+    <div class="center">
+        <p id="win"></p>
+        <p id="error"></p>
+    </div>
+
+
+
+</body>
+<script>
+    function start(){
+    let a = prompt("enter your number: ");
+    if(a==null){
+    document.getElementById('error').innerHTML= "invaild input";
+    }
+    else if (a>100){
+    document.getElementById('error').innerHTML= "invaild input";
+
+    }
+    else{
+    for(i=0;i<5;i++){
+      ran= Math.floor(Math.random()*100);
+      let p = document.createElement("p")
+      p.innerHTML = `computer guess is ${ran}`;
+      document.getElementById('output').append (p);
+      if (ran==a) {
+      document.getElementById('win').innerHTML= "computer wins"; 
+        break;
+      }
+    }
+    document.getElementById('win').innerHTML= "you wins";
+    }
+}
+</script>
+</html>
